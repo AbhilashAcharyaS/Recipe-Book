@@ -7,20 +7,22 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
-  private recipes: Recipe[] = [
-    new Recipe(
-      'test',
-      'test desc',
-      'https://cdn.pixabay.com/photo/2015/06/01/23/43/pasta-794464_1280.jpg',
-      [new Ingredient('meat', 1), new Ingredient('French fries', 10)]
-    ),
-    new Recipe(
-      'test2',
-      'test desc2',
-      'https://cdn.pixabay.com/photo/2015/06/01/23/43/pasta-794464_1280.jpg',
-      [new Ingredient('meat', 5), new Ingredient('French fries', 2)]
-    ),
-  ];
+//   private recipes: Recipe[] = [
+//     new Recipe(
+//       'test',
+//       'test desc',
+//       'https://cdn.pixabay.com/photo/2015/06/01/23/43/pasta-794464_1280.jpg',
+//       [new Ingredient('meat', 1), new Ingredient('French fries', 10)]
+//     ),
+//     new Recipe(
+//       'test2',
+//       'test desc2',
+//       'https://cdn.pixabay.com/photo/2015/06/01/23/43/pasta-794464_1280.jpg',
+//       [new Ingredient('meat', 5), new Ingredient('French fries', 2)]
+//     ),
+//   ];
+
+  private recipes:Recipe[]= [];
 
   constructor(private slSer: ShoppingListService) {}
 
