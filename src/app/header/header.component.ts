@@ -1,3 +1,4 @@
+import { DataStorageService } from './../Shared/data-storage.service';
 import { Component} from "@angular/core";
 
 @Component({
@@ -7,5 +8,9 @@ import { Component} from "@angular/core";
 })
 
 export class headerComponent{
+    constructor(private dataStorageService:DataStorageService){}
 
+    onSaveData(){
+        this.dataStorageService.storeRecipes();
+    }
 }
