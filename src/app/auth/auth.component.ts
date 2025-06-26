@@ -10,6 +10,8 @@ import { NgForm } from '@angular/forms';
 export class AuthComponent {
   constructor(private authService:AuthService){}
   isLoginMode= true;
+  isLoading= false;
+  error:string=null;
 
   onSwitchMode(){
     this.isLoginMode = !this.isLoginMode;
@@ -17,13 +19,13 @@ export class AuthComponent {
 
   onFormSubmit(form:NgForm){
     if(!form.valid) return;
-
+    this.isLoading=true;
     if(this.isLoginMode){
 
     }
     else{
-      this.authService.signUpUser(form.value.email, form.value.password).subscribe(res=>console.log(res), err=>console.log(err));
+      this.authService.signUpUser(form.value.email, form.value.password).subscribe(res=>{console.log(res); this.isLoading=false; form.reset(); this.error=null}, errorMsg=>{console.log(errorMsg); this.isLoading=false; this.error=errorMsg});
     }
-    form.reset();
+    // form.reset();
   }
 }
