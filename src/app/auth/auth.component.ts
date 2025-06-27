@@ -1,6 +1,7 @@
 import { AuthResponseData, AuthService } from './auth.service';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
   styles: ``,
 })
 export class AuthComponent {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router:Router) {}
   isLoginMode = true;
   isLoading = false;
   error: string = null;
@@ -27,8 +28,7 @@ export class AuthComponent {
     if (this.isLoginMode) {
      authObs= this.authService.login(form.value.email, form.value.password)
     } else {
-     authObs= this.authService
-        .signUpUser(form.value.email, form.value.password)
+     authObs= this.authService.signUpUser(form.value.email, form.value.password)
     }
 
     authObs.subscribe(
@@ -37,6 +37,7 @@ export class AuthComponent {
         this.isLoading=false;
         this.error=null;
         form.reset();
+        this.router.navigate(["/recipes"])
         },
         (errorMsg)=>{
           console.log(errorMsg);
