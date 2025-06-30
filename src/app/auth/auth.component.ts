@@ -19,6 +19,10 @@ export class AuthComponent {
     this.isLoginMode = !this.isLoginMode;
   }
 
+  onHandleError(){
+    this.error=null;
+  }
+
   onFormSubmit(form: NgForm) {
     if (!form.valid) return;
 
@@ -43,8 +47,14 @@ export class AuthComponent {
           console.log(errorMsg);
           this.isLoading=false;
           this.error=errorMsg;
+          this.showErrorAlert(errorMsg)
         }
       )
     // form.reset();
   }
+
+  showErrorAlert(err){
+  
+  }
+
 }
