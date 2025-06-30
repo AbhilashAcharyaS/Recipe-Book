@@ -47,14 +47,8 @@ export class AuthComponent {
           console.log(errorMsg);
           this.isLoading=false;
           this.error=errorMsg;
-          this.showErrorAlert(errorMsg)
         }
       )
     // form.reset();
   }
-
-  showErrorAlert(err){
-  
-  }
-
 }
