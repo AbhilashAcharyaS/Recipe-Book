@@ -5,9 +5,6 @@ import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AuthInterceptor } from "./auth/auth-interceptor.service";
 
 @NgModule({
-    declarations:[],
-    imports:[],
-    exports:[],
     providers:[
         ShoppingListService,
         RecipeService,
